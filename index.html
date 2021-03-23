@@ -29,7 +29,7 @@
 
     <div class="ui hidden divider"></div>
 
-    <button class="ui button massive blue">Gogogo</button>
+    <button class="ui button massive blue">gogogo</button>
 
     <div class="ui hidden divider"></div>
 
@@ -37,13 +37,17 @@
       <div class="bar">
         <div class="progress"></div>
       </div>
-      <div class="label">Waiting for you to press button</div>
+      <div class="label">press the button!!</div>
     </div>
   </div>
 
   <script type="text/javascript">
+    let playCount = 0;
+
     $('.ui.button')
     .on('click', function() {
+      playCount++;
+
       let
         $progress       = $('.ui.progress'),
         $button         = $(this),
@@ -55,10 +59,17 @@
       // updates every 10ms until complete
       window.fakeProgress = setInterval(function() {
         $progress.progress('increment');
-        $button.text( $progress.progress('get value') );
+
+        if (playCount == 1) {
+          $button.text("goingggg");
+        } else if (playCount == 2) {
+          $button.text("so productiveee");
+        }
+
         // stop incrementing when complete
         if($progress.progress('is complete')) {
-          clearInterval(window.fakeProgress)
+          clearInterval(window.fakeProgress);
+          $button.text("do more productive??");
         }
       }, 10);
     })
@@ -68,7 +79,8 @@
       duration : 200,
       total    : 200,
       text     : {
-        active: '{value} of {total} done'
+        active: 'hihi',
+        success: 'dun 4 da day'
       }
     })
   ;
