@@ -29,7 +29,9 @@
 
     <div class="ui hidden divider"></div>
 
-    <button class="ui button massive blue">gogogo</button>
+    <button class="ui button massive blue">
+      gogogo
+    </button>
 
     <div class="ui hidden divider"></div>
 
@@ -37,7 +39,6 @@
       <div class="bar">
         <div class="progress"></div>
       </div>
-      <div class="label">press the button!!</div>
     </div>
   </div>
 
@@ -71,7 +72,11 @@
         // stop incrementing when complete
         if($progress.progress('is complete')) {
           clearInterval(window.fakeProgress);
-          $button.text("do more productive??");
+          if (playCount >= 4) {
+            $button.html('dun 4 da day&nbsp;&nbsp;&nbsp;<i class="check circle icon"></i>');
+          } else {
+            $button.text("do more productive??");
+          }
         }
       }, 10);
     })
@@ -80,10 +85,6 @@
     .progress({
       duration : 200,
       total    : 200,
-      text     : {
-        active: 'hihi',
-        success: 'dun 4 da day'
-      }
     })
   ;
   </script>
